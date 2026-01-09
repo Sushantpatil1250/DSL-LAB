@@ -1,0 +1,99 @@
+
+    import java.util.Arrays;
+
+    public class ex_1
+    {
+        public static void main(String[] args)
+        {
+
+            // by using Original Array
+            int[] a = {10, 20, 30, 40};
+            System.out.println("ori arry");
+
+            // 1. Traversal
+
+
+            for (int i = 0; i < 4; i++)
+                System.out.print(a[i] + "  ");
+            System.out.println();
+
+            // 2. by using Access
+
+
+            System.out.println("Access element at index 2: " + a[2]);
+
+
+
+            // 3.by using Updating
+            a[1] = 25;
+            System.out.println("Updating index 1:");
+            System.out.println(Arrays.toString(a));
+
+            // 4. by using Searching
+            int key = 50;
+            boolean found = false ;
+            for (int i = 0; i < 4; i++) {
+                if (a[i] == key) {
+                    found = true;
+                    break;
+                }
+            }
+            System.out.println("Search 20: " + found);
+
+
+
+            // 5. by using Insertion
+
+            int[] insertArr = new int[4 + 1];
+            int index = 2, value = 35;
+            for (int i = 0,j = 0; i < insertArr.length; i++)
+            {
+                if (i == index)
+                    insertArr[i] = value;
+                else
+                    insertArr[i] = a[j++];
+            }
+            a = insertArr;
+            System.out.println("After Insertion:");
+            System.out.println(Arrays.toString(a));
+
+            // 6.by using  Deletion
+            index = 1;
+            for (int i = index; i < a.length - 1; i++)
+                a[i] = a[i + 1];
+            a = Arrays.copyOf(a, a.length - 1);
+            System.out.println("After Deletion:");
+            System.out.println(Arrays.toString(a));
+
+            // 7. by using Sorting
+            Arrays.sort(a);
+            System.out.println("After Sorting:");
+            System.out.println(Arrays.toString(a));
+
+            // 8. by using Merging
+            int[] b = {50, 60};
+            int[] merge = new int[a.length + b.length];
+            int k = 0;
+            for (int i = 0; i < a.length; i++)
+                merge[k++] = a[i];
+            for (int i = 0; i < b.length; i++)
+                merge[k++] = b[i];
+
+            System.out.println("After Merging: " + Arrays.toString(merge));
+
+            // 9. by using Splitting
+            int mid = merge.length / 2;
+            int[] first = Arrays.copyOfRange(merge, 0, mid);
+            int[] second = Arrays.copyOfRange(merge, mid, merge.length);
+            System.out.println("After Splitting:");
+            System.out.println(Arrays.toString(first));
+            System.out.println(Arrays.toString(second));
+
+            // 10. by using Resizing
+            merge = Arrays.copyOf(merge, 8);
+            System.out.println("After Resizing:");
+            System.out.println(Arrays.toString(merge));
+        }
+    }
+
+
